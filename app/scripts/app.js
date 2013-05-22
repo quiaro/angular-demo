@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('dialogsApp', [])
+angular.module('angularDemoApp', [])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
