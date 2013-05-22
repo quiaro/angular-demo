@@ -4,8 +4,8 @@ angular.module('angularDemoApp', [])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        templateUrl: 'scripts/dashboard/dashboard.tpl.html',
+        controller: 'DashboardCtrl'
       })
       .otherwise({
         redirectTo: '/'
