@@ -1,5 +1,14 @@
-angular.module('dialogs', [])
+'use strict';
 
-.controller('DialogsCtrl', ['$scope', '$location', function ($scope, $location) {
-  // $scope.projects = projects; 
-}]);
+angular.module('dialogs',[
+		'history.dialog',
+		'go-live.dialog'
+	])
+
+	.controller('DialogsCtrl', ['$scope', function ($scope) {
+	  $scope.anotherList = [
+      'HTML5 Boilerplate',
+      'AngularJS',
+      'Karma'
+    ];
+	}]);

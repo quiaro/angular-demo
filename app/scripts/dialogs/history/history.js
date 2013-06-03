@@ -1,0 +1,1 @@
+angular.module('history.dialog', ['ui.bootstrap.dialog']);

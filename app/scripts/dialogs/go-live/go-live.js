@@ -1,0 +1,1 @@
+angular.module('go-live.dialog', ['ui.bootstrap.dialog']);
