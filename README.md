@@ -19,7 +19,7 @@ In order to install this application, you will first need to have the following 
 
 After you've installed Node and NPM, if you haven't yet installed the Grunt-CLI plugin and Bower globally, you can do so by typing the following command:
 
-`$ npm install -g grunt grunt-cli bower`
+`$ npm install -g grunt-cli bower`
 
 Installing
 ----------
