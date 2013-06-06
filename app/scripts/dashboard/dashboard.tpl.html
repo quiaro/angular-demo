@@ -4,6 +4,9 @@
   <ul>
       <li ng-repeat="thing in awesomeThings">{{thing}}</li>
   </ul>
-  <p>Try out the dialogs by clicking on the button below:</p>
-  <button type="button" class="btn btn-primary" ng-model="singleModel" btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">Open dialog</button>
+  <p>Try out the dialogs by clicking on the buttons below:</p>
+  <div ng-controller="DialogsCtrl">
+  	<button type="button" class="btn btn-primary" ng-click="showDialog('history')">Open History Dialog</button>
+  	<button type="button" class="btn btn-primary" ng-click="showDialog('go-live')">Open Go-Live Dialog</button>
+  </div>
 </div>

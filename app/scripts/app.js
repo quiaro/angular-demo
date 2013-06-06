@@ -1,8 +1,7 @@
 'use strict';
 
 angular.module('angularDemoApp', [
-    'dashboard',
-    'dialogs'
+    'dashboard'
   ])
 
   .config(function ($routeProvider) {
