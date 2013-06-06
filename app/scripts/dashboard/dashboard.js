@@ -1,8 +1,6 @@
 'use strict';
 
-angular.module('dashboard', [    
-	'dialogs'
-	])
+angular.module('dashboard', ['dialogs'])
 
   .controller('DashboardCtrl', function ($scope) {
     $scope.awesomeThings = [
