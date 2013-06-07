@@ -5,7 +5,6 @@ angular.module('dialogs', ['history.dialog','go-live.dialog'])
 	.controller('DialogsCtrl', ['$scope', 'historyDialog', 'goLiveDialog', function($scope, historyDialog, goLiveDialog) {
 
 	$scope.showDialog = function showDialog(dialogName) {
-
 		switch (dialogName) {
 			case 'history':
 				historyDialog.open();
@@ -18,7 +17,7 @@ angular.module('dialogs', ['history.dialog','go-live.dialog'])
 		}
 	};
 
-	$scope.closeDialog = function close(dialogName) {
+	$scope.closeDialog = function closeDialog (dialogName) {
 		switch (dialogName) {
 			case 'history':
 				historyDialog.close();
@@ -31,8 +30,4 @@ angular.module('dialogs', ['history.dialog','go-live.dialog'])
 		}
 	};
 
-	$scope.anotherList = [
-		'HTML5 Boilerplate',
-		'AngularJS',
-		'Karma'];
 }]);
