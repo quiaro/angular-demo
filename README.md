@@ -1,28 +1,29 @@
 angular-demo
 ============
 
-Demo app using angular
-
-This application started as an Angular boilerplate project using [Yeoman](http://yeoman.io/index.html), but tries to adapt a series of best practices from the [AngularJS CRUD demo app](https://github.com/angular-app/angular-app) by Pawel Kozlowski & Peter Bacon Darwin. 
+The goal of this application is to adapt and demo a series of best practices in terms of structure from the [AngularJS CRUD demo app](https://github.com/angular-app/angular-app) by Pawel Kozlowski & Peter Bacon Darwin. This application started out as an Angular boilerplate project using [Yeoman](http://yeoman.io/index.html), therefore it makes use of an effective development/build environment using Grunt tasks and lets the user easily manage its dependencies using Bower.
 
 Requirements
 ------------
 
-*Any lines starting with $ are commands to type in a terminal window (the "$" is not meant to be included)*
+To work on or build this application you will first need to install [Node](http://nodejs.org/).
 
-In order to install this application, you will first need to have the following installed:
+Node can be installed in the following ways:
 
-1.   [Node](http://nodejs.org/)
-2.   NPM : Package Manager (comes by default with the Node installer)
-3.   Grunt : Task Runner/Build Tool
-4.   Bower : Component Manager
+1.   Using the [installer](http://nodejs.org/download/)
+     *The Mac installer will install node under /usr/local/bin so you will need to have admin rights to complete the install.
 
-After you've installed Node and NPM, if you haven't yet installed the Grunt-CLI plugin and Bower globally, you can do so by typing the following command:
+2.   [Building the source code](https://github.com/joyent/node/wiki/Installation)
+     This way you can choose to install Node in a custom folder instead of a global directory by using the --prefix config option, thus you are not required to have admin rights to complete the install.
 
-`$ npm install -g grunt-cli bower`
+3.   [Via a package manager](https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager)
 
 Installing
 ----------
+
+### Manual Install
+
+*Any lines starting with $ are commands to type in a terminal window (the "$" is not meant to be included)*
 
 To install this application:
 
@@ -42,11 +43,38 @@ To install this application:
 
     `$ bower install`
 
+
+### Automatic Install for Mac OS X and *nix systems
+
+1.   Clone the repo:
+
+    `$ git clone https://github.com/quiaro/angular-demo`
+
+    *This command will clone the repo into a folder with the repo's name (i.e. angular-demo) inside the current directory. If you wish to clone the repo directly into the current directory, use this other command instead:
+
+    `$ git clone https://github.com/quiaro/angular-demo .`
+
+2.  Run the install script found in the project root:
+
+    `$ ./install.sh` 
+
 Tasks
 -----
 
-The application comes with three grunt tasks:
+A established workflow using grunt tasks can be outlined as follows:
 
-*	To work on the app: `$ grunt server`
-*	To test the app: `$ grunt test`
-*	To build the application for deployment: `$ grunt`
+1.    Write units tests, then write code: `$ grunt test`
+       
+       Start out by writing unit tests for the features or bugs you wish to fix, then write the code that implements the features or bug fixes making sure that all unit tests pass.
+
+2.    Lint your code: `$ grunt lint`
+       
+       Make sure your code adheres to specific code guidelines.
+
+3.    Run the app : `$ grunt server`
+       
+       Test the look and feel of the app to guarantee a positive user experience.
+
+4.    Build the app: `$ grunt`
+       
+       Build the application for deployment and run it on any HTTP server.
