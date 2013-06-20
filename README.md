@@ -27,19 +27,23 @@ Installing
 
 To install this application:
 
-1.   Clone the repo:
+1.   Install the Grunt-CLI and Bower plugins globally:
+
+    `$ npm install -g grunt-cli bower`
+
+2.   Clone the repo:
 
     `$ git clone https://github.com/quiaro/angular-demo`
 
-2.   Go to the home directory of the app:
+3.   Go to the home directory of the app:
 
     `$ cd angular-demo`
 
-3.   Fetch all package dependencies
+4.   Fetch all package dependencies
 
     `$ npm install`
 
-4.   Fetch all component dependencies
+5.   Fetch all component dependencies
 
     `$ bower install`
 
@@ -50,13 +54,17 @@ To install this application:
 
     `$ git clone https://github.com/quiaro/angular-demo`
 
-    *This command will clone the repo into a folder with the repo's name (i.e. angular-demo) inside the current directory. If you wish to clone the repo directly into the current directory, use this other command instead:
+    *This command will clone the repo into a folder with the repo's name (i.e. angular-demo) inside the current directory. If you wish to clone the repo directly into the current directory, use this other command instead*:
 
     `$ git clone https://github.com/quiaro/angular-demo .`
 
 2.  Run the install script found in the project root:
 
-    `$ ./install.sh` 
+    `$ sudo ./install.sh`
+
+    *If you installed node using the installer (**Requirements, step 1**), then you will need admin rights to run the install script since it will install the Grunt-CLI and Bower plugins globally. Otherwise, if you installed Node in a custom folder to which you have write access, then sudo is unnecessary to run the script: *
+
+    `$ ./install.sh`
 
 Tasks
 -----
