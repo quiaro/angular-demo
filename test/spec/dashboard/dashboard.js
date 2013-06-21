@@ -6,17 +6,30 @@ describe('Controller: DashboardCtrl', function () {
   beforeEach(module('dashboard'));
 
   var DashboardCtrl,
-      scope;
+      scope,
+      params;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
+  beforeEach(inject(function ($controller, $rootScope, dashboardService) {
     scope = $rootScope.$new();
-    DashboardCtrl = $controller('DashboardCtrl', {
-      $scope: scope
-    });
+
+    spyOn(dashboardService, 'getRecentActivity').andCallThrough();
+
+    params = {
+      $scope: scope,
+      dashboardService: dashboardService
+    };
+
+    DashboardCtrl = $controller('DashboardCtrl', params);
+
+
   }));
 
-  it('should attach an item list to the scope', function () {
-    expect(scope.itemList.length).toBe(3);
+  it('should have called dashboardService', function() {
+    expect(params.dashboardService.getRecentActivity).toHaveBeenCalled();
   });
+
+//  it('should attach an item list to the scope', function () {
+//    expect(scope.itemList.length).toBe(3);
+//  });
 });
