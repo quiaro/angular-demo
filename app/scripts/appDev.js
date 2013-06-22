@@ -1,11 +1,12 @@
 'use strict';
 
 angular.module('angularDemoAppDev', [
-  'angularDemoApp', 
-  'ngMockE2E'])
+    'angularDemoApp',
+    'ngMockE2E'])
 
-  .run(function($httpBackend) {
-	  items = [{
+    .run(function($httpBackend) {
+
+    var items = [{
         'id': '1AWTX',
         'existence': 'existing',
         'type': 'page',
@@ -36,19 +37,17 @@ angular.module('angularDemoAppDev', [
         'lastAuthor': 'Clyde Newman',
         'lastPersonalEdit': '12/05/12 09:12 AM'
     }];
-	 
-	  // returns the current list of phones
-	  $httpBackend.whenGET('/api/0.1/repo/list/pebbles').respond(items);
 
-	  $httpBackend.whenGET('/api/0.1/repo/read/pebbles?itemId=3QCRS&version=3').respond(items[1]);
-	 
-	  // adds a new item  to the items list
-	  $httpBackend.whenPOST('/api/0.1/repo/write/pebbles').respond(function(method, url, data) {
-	    items.push(angular.fromJSON(data));
-	  });
+    // returns the current list of phones
+    $httpBackend.whenGET('/api/0.1/repo/list/pebbles').respond(items);
 
-	  // Use .passThrough to bypass the mock and issue a real http request
-	  // $httpBackend.whenGET(/^\/templates\//).passThrough();
+    $httpBackend.whenGET('/api/0.1/repo/read/pebbles?itemId=3QCRS&version=3').respond(items[1]);
 
-	})
+    // adds a new item  to the items list
+    $httpBackend.whenPOST('/api/0.1/repo/write/pebbles').respond(function(method, url, data) {
+        items.push(angular.fromJSON(data));
+    });
+
+    // Use .passThrough to bypass the mock and issue a real http request
+    // $httpBackend.whenGET(/^\/templates\//).passThrough();
 });
