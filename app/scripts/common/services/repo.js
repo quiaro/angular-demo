@@ -3,11 +3,13 @@
 angular.module('services.repo', [])
 	.service('repo', function($http) {
 
-	var api = 'repo',
-		sitename = 'pebbles';
+	var api = 'repo';
 
 	// Common function
 	function getServiceURL(api, method, sitename, searchStr) {
+
+		// In real life, when the UI loads, sitename will be passed as a parameter in the URL and cached
+		var sitename = sitename || 'pebbles';		// default value is pebbles
 		var res = '/api/0.1/' + api + '/' + method + '/' + sitename + ((!searchStr) ? '' : '?' + searchStr);
 		return res;
 	}
@@ -22,6 +24,7 @@ angular.module('services.repo', [])
 			}
 		}
 		url = getServiceURL(api, 'list', sitename, searchStr);
+
 		return $http.get(url);
 	}
 

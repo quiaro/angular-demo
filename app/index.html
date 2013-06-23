@@ -15,7 +15,9 @@
     <link rel="stylesheet" href="styles/dashboard.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="angularDemoApp">
+
+  <!-- <body ng-app="angularDemoApp@@dev"> -->
+  <body ng-app="angularDemoAppDev">
     <!--[if lt IE 7]>
       <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
     <![endif]-->
@@ -28,10 +30,22 @@
     <!-- Add your site or application content here -->
     <div class="container-fluid" ng-view></div>
 
+    <!--
+    <script src="components/angular/angular@@min.js"></script>
+    <script src="components/angular-bootstrap/ui-bootstrap@@min.js"></script>
+    <script src="components/angular-resource/angular-resource@@min.js"></script>
+    <script src="components/angular-sanitize/angular-sanitize@@min.js"></script>
+    @@includeNgMocks
+    @@includeAppDev
+    -->
     <script src="components/angular/angular.js"></script>
-    <script src="components/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="components/angular-bootstrap/ui-bootstrap.js"></script>
     <script src="components/angular-resource/angular-resource.js"></script>
     <script src="components/angular-sanitize/angular-sanitize.js"></script>
+
+    <!-- Should be removed when grunt-replace is installed -->
+    <script src="components/angular-mocks/angular-mocks.js"></script>
+    <script src="scripts/appDev.js"></script>
 
     <!-- build:js scripts/scripts.js -->
     <script src="scripts/app.js"></script>
@@ -39,6 +53,7 @@
     <script src="scripts/dialogs/dialogs.js"></script>
     <script src="scripts/dialogs/go-live/go-live.js"></script>
     <script src="scripts/dialogs/history/history.js"></script>
+    <script src="scripts/common/services/repo.js"></script>
     <!-- endbuild -->
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

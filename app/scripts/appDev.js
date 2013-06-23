@@ -49,5 +49,6 @@ angular.module('angularDemoAppDev', [
     });
 
     // Use .passThrough to bypass the mock and issue a real http request
-    // $httpBackend.whenGET(/^\/templates\//).passThrough();
+    // e.g. $httpBackend.whenGET(/^\/templates\//).passThrough();
+    $httpBackend.whenGET(/^scripts\/.*\.tpl\.html/).passThrough();
 });
