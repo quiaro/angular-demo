@@ -1,17 +1,41 @@
 'use strict';
 
+// COMMON global var
+var S2dio = {};
+S2dio.siteName = '';
+
 angular.module('services.repo', [])
 	.service('repo', function($http) {
 
 	var api = 'repo';
 
-	// Common function
-	function getServiceURL(api, method, sitename, searchStr) {
+	// INIT function
+	setSiteName('pebbles');
 
-		// In real life, when the UI loads, sitename will be passed as a parameter in the URL and cached
-		var sitename = sitename || 'pebbles';		// default value is pebbles
-		var res = '/api/0.1/' + api + '/' + method + '/' + sitename + ((!searchStr) ? '' : '?' + searchStr);
+	// COMMON function
+	function getServiceURL(api, method, searchStr) {
+
+		var siteName, res;
+
+		siteName = getSiteName();
+		res = '/api/0.1/' + api + '/' + method + '/' + siteName + ((!searchStr) ? '' : '?' + searchStr);
 		return res;
+	}
+
+	// COMMON function
+	// In real life, when the UI loads, siteName will be passed as a parameter in the URL and cached
+	function getSiteName () {
+
+		if (S2dio.siteName) {
+			return S2dio.siteName;
+		} else {
+			throw new ReferenceError("S2dio.siteName has not been set");
+		}
+	}
+
+	// COMMON function
+	function setSiteName (name) {
+		S2dio.siteName = name;
 	}
 
 	function list(filtersObj) {
@@ -23,7 +47,7 @@ angular.module('services.repo', [])
 				searchStr += filter + '=' + filtersObj[filter];
 			}
 		}
-		url = getServiceURL(api, 'list', sitename, searchStr);
+		url = getServiceURL(api, 'list', searchStr);
 
 		return $http.get(url);
 	}
@@ -33,7 +57,7 @@ angular.module('services.repo', [])
 		var searchStr, url;
 
 		searchStr = 'item=' + item + 'version=' + version;
-		url = getServiceURL(api, 'read', sitename, searchStr);
+		url = getServiceURL(api, 'read', searchStr);
 
 		return $http.get(url);
 	}
