@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('angularDemoApp', [
-    'dashboard'
+    'dashboard',
+    'resources.util'
   ])
 
   .config(function ($routeProvider) {
@@ -13,4 +14,9 @@ angular.module('angularDemoApp', [
       .otherwise({
         redirectTo: '/'
       });
+  })
+
+  // Initialize the app
+  .run(function (util) {
+    util.setS2dioProperty('siteName', 'pebbles');
   });
