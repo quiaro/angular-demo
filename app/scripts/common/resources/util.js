@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('resources.util', [])
-	.service('util', function() {
+angular.module('resources.util', ['resources.vars'])
+	.service('util', ['S2dio', function(S2dio) {
 
 	/*
 	 * @param api -API Category
@@ -55,4 +55,4 @@ angular.module('resources.util', [])
 		getS2dioProperty: getS2dioProperty,
 		setS2dioProperty: setS2dioProperty
 	};
-});
+}]);
