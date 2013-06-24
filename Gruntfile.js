@@ -258,25 +258,39 @@ module.exports = function (grunt) {
           ]
         }]
       }
+    },
+    replace: {
+      dev: {
+        options: {
+          variables: {
+            'min': '',
+            'dev': 'Dev',
+            'includeNgMocks': '<script src="components/angular-mocks/angular-mocks.js"></script>',
+            'includeAppDev': '<script src="scripts/appDev.js"></script>'
+          }
+        },
+        files: [
+          { src: ['<%= yeoman.app %>/index.html'],
+            dest: '.tmp/index.html' }
+        ]
+      },
+      prod: {
+        options: {
+          variables: {
+            'min': '.min'
+          }
+        },
+        files: [
+          { src: ['<%= yeoman.app %>/index.html'],
+            dest: '<%= yeoman.dist %>/index.html' }
+        ]
+      }
     }
   });
 
   grunt.renameTask('regarde', 'watch');
 
-  grunt.registerTask('lint', [
-    'jshint'
-  ]);
-
-  grunt.registerTask('server', [
-    'clean:server',
-    'coffee:dist',
-    // 'compass:server',
-    'livereload-start',
-    'connect:livereload',
-    'open',
-    'watch'
-  ]);
-
+  // Run unit tests on jasmine
   grunt.registerTask('test', [
     'clean:server',
     'coffee',
@@ -285,12 +299,31 @@ module.exports = function (grunt) {
     'karma'
   ]);
 
+  // Run tests for code linting
+  grunt.registerTask('lint', [
+    'jshint'
+  ]);
+
+  // Test look and feel locally
+  grunt.registerTask('server', [
+    'clean:server',
+    'coffee:dist',
+    // 'compass:server',
+    'livereload-start',
+    'connect:livereload',
+    'replace:dev',
+    'open',
+    'watch'
+  ]);
+
+  // Build the project for release
   grunt.registerTask('build', [
     'clean:dist',
     'jshint',
     'test',
     'coffee',
     // 'compass:dist',
+    'replace:prod',
     'useminPrepare',
     'imagemin',
     'cssmin',
