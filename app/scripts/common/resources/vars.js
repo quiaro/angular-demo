@@ -1,3 +1,4 @@
+/* jshint unused: false */
 
 // User Interface namespace
 var S2dio = {

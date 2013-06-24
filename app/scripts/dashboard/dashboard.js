@@ -7,7 +7,7 @@ angular.module('dashboard', ['dialogs', 'services.repo'])
     // Get Recent Activity data    
     repo.list().success(function(data) {
         $scope.recentActivity = data;
-    }).error(function(data) {
+    }).error(function() {
         alert('Error: call to repo.list service failed');
     });
 

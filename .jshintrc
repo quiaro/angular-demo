@@ -1,5 +1,4 @@
 {
-
   "bitwise": true,    
   "camelcase": true,  
   "curly": true,      
@@ -16,11 +15,13 @@
   "trailing": true,   
 
   "node": true,
-  "browser": true,    
+  "browser": true,
+  "devel": true,    
   "es5": true,       
   "esnext": true,     
   "smarttabs": true,
   "globals": {
-    "angular": false
+    "angular": false,
+    "S2dio": true
   }
 }
