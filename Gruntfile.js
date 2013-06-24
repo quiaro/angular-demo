@@ -201,7 +201,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: '<%= yeoman.app %>',
-          src: ['*.html', 'scripts/**/*.tpl.html'],
+          src: ['scripts/**/*.tpl.html'],
           dest: '<%= yeoman.dist %>'
         }]
       }
@@ -277,7 +277,10 @@ module.exports = function (grunt) {
       prod: {
         options: {
           variables: {
-            'min': '.min'
+            'min': '.min',
+            'dev': '',
+            'includeNgMocks': '',
+            'includeAppDev': ''
           }
         },
         files: [
