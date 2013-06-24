@@ -1,10 +1,14 @@
 'use strict';
 
-angular.module('dashboard', ['dialogs', 'dashboard.services'])
+angular.module('dashboard', ['dialogs', 'services.repo'])
 
-    .controller('DashboardCtrl', function($scope, dashboardService) {
+    .controller('DashboardCtrl', ['$scope', 'repo', function($scope, repo) {
 
-      dashboardService.getRecentActivity().then(function(data) {
-        $scope.itemList = data;
-      });
-});
+    // Get Recent Activity data    
+    repo.list().success(function(data) {
+        $scope.recentActivity = data;
+    }).error(function(data) {
+        alert('Error: repo.list service failed');
+    });
+
+}]);
