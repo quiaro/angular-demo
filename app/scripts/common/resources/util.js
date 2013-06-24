@@ -21,7 +21,6 @@ angular.module('resources.util', [])
 		return res;
 	}
 
-	// In real life, when the UI loads, siteName will be passed as a parameter in the URL and cached
 	function getS2dioProperty (property) {
 
 		if (S2dio[property]) {
