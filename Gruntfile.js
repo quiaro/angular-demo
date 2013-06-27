@@ -99,8 +99,14 @@ module.exports = function (grunt) {
       ]
     },
     karma: {
-      unit: {
-        configFile: 'karma.conf.js',
+      options: {
+        configFile: 'karma.conf.js'
+      },
+      continuous: {
+        browsers: ['Chrome']
+      },
+      dev: {
+        autoWatch: true,
         singleRun: false
       }
     },
@@ -274,7 +280,7 @@ module.exports = function (grunt) {
             dest: '.tmp/index.html' }
         ]
       },
-      prod: {
+      build: {
         options: {
           variables: {
             'min': '.min',
@@ -299,7 +305,7 @@ module.exports = function (grunt) {
     'coffee',
     // 'compass',
     'connect:test',
-    'karma'
+    'karma:dev'
   ]);
 
   // Run tests for code linting
@@ -323,10 +329,11 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean:dist',
     'jshint',
-    'test',
     'coffee',
     // 'compass:dist',
-    'replace:prod',
+    'connect:test',
+    'karma:continuous',
+    'replace:build',
     'useminPrepare',
     'imagemin',
     'cssmin',
