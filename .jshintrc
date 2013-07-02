@@ -15,13 +15,11 @@
   "trailing": true,   
 
   "node": true,
-  "browser": true,
-  "devel": true,    
+  "browser": true,   
   "es5": true,       
   "esnext": true,     
   "smarttabs": true,
   "globals": {
-    "angular": false,
-    "S2dio": true
+    "angular": false
   }
 }
