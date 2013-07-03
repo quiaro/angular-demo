@@ -26,21 +26,7 @@ describe('Module: Utilities', function () {
     url = utilService.getServiceURL('category','method','stringWithSearchParams');
     res = '/' + urlBase + '/' + apiVersion + '/category/method/' + siteName + '?stringWithSearchParams';
     expect(url).toBe(res);
-
-    url = utilService.getServiceURL('', 'method','');
-    expect(url).toBeNull();
-
-    url = utilService.getServiceURL('category','','');
-    expect(url).toBeNull();
-
-    url = utilService.getServiceURL('category', 1,'');
-    expect(url).toBeNull();
-
-    url = utilService.getServiceURL(1, 'method','');
-    expect(url).toBeNull();
-
-    url = utilService.getServiceURL('category','method', 1);
-    expect(url).toBeNull();
+    
   });
 
 });
