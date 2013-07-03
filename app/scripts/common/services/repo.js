@@ -7,7 +7,8 @@ angular.module('services.repo', ['resources.util'])
 
 	function list(filtersObj) {
 
-		var searchStr, url;
+		var url,
+			searchStr = '';
 
 		for (var filter in filtersObj) {
 			if (filtersObj.hasOwnProperty(filter)) {
