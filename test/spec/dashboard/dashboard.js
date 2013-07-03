@@ -31,14 +31,14 @@ describe('Controller: DashboardCtrl', function () {
 
   it('should attach the list of recent activity items to the scope when the call to repo.list() is successful', function () {
     httpBackend.expectGET('/url/to/activity/items').respond(200, ['a']);
-    DashboardCtrl.getRecentActivity();
+    scope.getRecentActivity();
     httpBackend.flush();    
     expect(scope.recentActivity).toEqual(['a']);
   });
 
   it('should display an error message when the call to repo.list() fails', function () {
     httpBackend.expectGET('/url/to/activity/items').respond(500);
-    DashboardCtrl.getRecentActivity();
+    scope.getRecentActivity();
     httpBackend.flush();
     expect(params.$window.alert).toHaveBeenCalled();
     expect(scope.recentActivity).toBeUndefined();

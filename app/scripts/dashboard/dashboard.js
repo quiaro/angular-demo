@@ -5,7 +5,7 @@ angular.module('dashboard', ['dialogs', 'services.repo'])
   .controller('DashboardCtrl', ['$scope', '$window', 'repo', function($scope, $window, repo) {
 
     // Get Recent Activity data
-		this.getRecentActivity = function getRecentActivity () {
+		$scope.getRecentActivity = function getRecentActivity () {
 			repo.list().success(function(data) {
 				$scope.recentActivity = data;
 			}).error(function() {
