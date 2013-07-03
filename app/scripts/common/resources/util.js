@@ -7,18 +7,23 @@ angular.module('resources.util', ['resources.vars'])
 	 * @param api -API Category
 	 * @param method -Existing method in the API Category
 	 * @param searchStr -url search parameters
-	 * @return URL used to communicate with the backend
+	 * @return URL used to communicate with the backend; null, if the URL cannot be calculated correctly with the parameters given
 	 */
 	function getServiceURL(api, method, searchStr) {
 
-		var siteName, urlBase, apiVersion, res;
+		var siteName, urlBase, apiVersion;
 
 		siteName = getS2dioProperty('siteName');
 		urlBase = getS2dioProperty('urlBase');
 		apiVersion = getS2dioProperty('apiVersion');
 
-		res = '/' + urlBase + '/' + apiVersion + '/' + api + '/' + method + '/' + siteName + ((!searchStr) ? '' : '?' + searchStr);
-		return res;
+		if (api && typeof api == 'string' &&
+				method && typeof method == 'string' &&
+				typeof searchStr == 'string') {
+			return '/' + urlBase + '/' + apiVersion + '/' + api + '/' + method + '/' + siteName + ((!searchStr) ? '' : '?' + searchStr);
+		} else {
+			return null;
+		}
 	}
 
 	function getS2dioProperty (property) {
