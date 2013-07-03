@@ -17,9 +17,9 @@ angular.module('resources.util', ['resources.vars'])
 		urlBase = getS2dioProperty('urlBase');
 		apiVersion = getS2dioProperty('apiVersion');
 
-		if (api && typeof api == 'string' &&
-				method && typeof method == 'string' &&
-				typeof searchStr == 'string') {
+		if (api && typeof api === 'string' &&
+				method && typeof method === 'string' &&
+				typeof searchStr === 'string') {
 			return '/' + urlBase + '/' + apiVersion + '/' + api + '/' + method + '/' + siteName + ((!searchStr) ? '' : '?' + searchStr);
 		} else {
 			throw new Error('Unable to resolve service URL');
