@@ -22,7 +22,7 @@ angular.module('resources.util', ['resources.vars'])
 				typeof searchStr == 'string') {
 			return '/' + urlBase + '/' + apiVersion + '/' + api + '/' + method + '/' + siteName + ((!searchStr) ? '' : '?' + searchStr);
 		} else {
-			return null;
+			throw new Error('Unable to resolve service URL');
 		}
 	}
 
