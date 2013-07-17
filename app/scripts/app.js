@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularDemoApp', [
+angular.module('s2doApp', [
     'dashboard',
     'resources.util'
   ])

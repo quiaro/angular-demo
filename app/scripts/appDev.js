@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('angularDemoAppDev', [
-    'angularDemoApp',
+angular.module('s2doAppDev', [
+    's2doApp',
     'ngMockE2E'])
 
     .run(function($httpBackend) {
