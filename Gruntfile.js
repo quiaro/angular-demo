@@ -29,10 +29,10 @@ module.exports = function (grunt) {
         files: ['test/spec/{,*/}*.coffee'],
         tasks: ['coffee:test']
       },
-      // compass: {
-      //   files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
-      //   tasks: ['compass']
-      // },
+      compass: {
+        files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
+        tasks: ['compass']
+      },
       livereload: {
         files: [
           '<%= yeoman.app %>/**/*.html',
@@ -303,7 +303,7 @@ module.exports = function (grunt) {
   grunt.registerTask('test', [
     'clean:server',
     'coffee',
-    // 'compass',
+    'compass',
     'connect:test',
     'karma:dev'
   ]);
@@ -317,7 +317,7 @@ module.exports = function (grunt) {
   grunt.registerTask('server', [
     'clean:server',
     'coffee:dist',
-    // 'compass:server',
+    'compass:server',
     'livereload-start',
     'connect:livereload',
     'replace:dev',
@@ -330,7 +330,7 @@ module.exports = function (grunt) {
     'clean:dist',
     'jshint',
     'coffee',
-    // 'compass:dist',
+    'compass:dist',
     'connect:test',
     'karma:continuous',
     'replace:build',
