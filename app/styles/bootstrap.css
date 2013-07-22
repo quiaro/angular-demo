@@ -65,11 +65,13 @@
   display: none;
 }
 
+/*
 .s2do html {
   font-size: 100%;
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
+*/
 
 .s2do a:focus {
   outline: thin dotted #333;
@@ -225,7 +227,14 @@
   }
 }
 
-.s2do body {
+/* Styles originally applied to the body and html elements */
+.s2do {
+  /* html */
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+      
+  /* body */
   margin: 0;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
