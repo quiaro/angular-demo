@@ -5,16 +5,24 @@ angular.module('dashboard', ['dialogs', 'services.repo'])
 
 		$scope.getRecentActivity = function getRecentActivity () {
 
-			var filterObj;
+			var filterObj, promise;
 
 			function buildFilterObj () {
 				// TO-DO: Build the config object for the specific functionality we're on
 				return {};
 			}
 
+			// Initialize value
+			$scope.recentActivity = null;
+
 			filterObj = buildFilterObj();
+			promise = repo.list(filterObj);
+
+			// Service is handling any failures
+			promise.then( function (data) {
+      	$scope.recentActivity = data;
+      });
 			
-			$scope.recentActivity = repo.getList(filterObj);
 		};
 
 	}]);
